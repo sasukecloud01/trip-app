@@ -15,7 +15,7 @@ export default async function TripPage({ params }: PageProps) {
   if (!trip) notFound();
 
   return (
-    <main className="h-screen flex flex-col bg-zinc-50 dark:bg-zinc-950 overflow-hidden">
+    <main className="h-dvh flex flex-col bg-zinc-50 dark:bg-zinc-950 overflow-hidden">
       <div className="relative z-10 shrink-0 w-full max-w-lg mx-auto px-6 pt-12">
         <TripNav title={t(trip.displayName ?? trip.title, "en")} />
       </div>

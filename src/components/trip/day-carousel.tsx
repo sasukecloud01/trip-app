@@ -52,11 +52,11 @@ function ActivityCard({
 
   return (
     <div
-      className="flex-shrink-0 w-[82vw] h-[600px] flex flex-col rounded-2xl overflow-hidden bg-white dark:bg-zinc-900 shadow-xl"
+      className="flex-shrink-0 w-[82vw] flex flex-col rounded-2xl overflow-hidden bg-white dark:bg-zinc-900 shadow-xl"
       style={{ scrollSnapAlign: "start" }}
     >
-      {/* Image — flex-1 so it grows to fill all space above the content area */}
-      <div className="relative flex-1 min-h-0 overflow-hidden">
+      {/* Image — explicit responsive height, not flex-1 */}
+      <div className="relative h-[220px] sm:h-[260px] md:h-[300px] shrink-0 overflow-hidden">
         {activity.bgImage ? (
           <Image
             src={activity.bgImage}
@@ -71,8 +71,8 @@ function ActivityCard({
         )}
       </div>
 
-      {/* Content section — fixed height, CTA always at bottom */}
-      <div className="shrink-0 flex flex-col gap-2.5 px-5 pt-4 pb-5">
+      {/* Content section */}
+      <div className="flex flex-col gap-2 px-4 pt-3 pb-4">
 
         {/* Counter */}
         <p className="text-[11px] font-medium text-zinc-500 dark:text-zinc-500 tabular-nums">
@@ -87,8 +87,8 @@ function ActivityCard({
           </h3>
         </div>
 
-        {/* Description — fixed height so CTA position is always consistent */}
-        <p className="h-9 text-sm text-zinc-600 dark:text-zinc-400 leading-snug line-clamp-2 overflow-hidden">
+        {/* Description — fixed height keeps CTA position consistent */}
+        <p className="h-8 text-sm text-zinc-600 dark:text-zinc-400 leading-snug line-clamp-2 overflow-hidden">
           {description ?? mapsLocation ?? ""}
         </p>
 
@@ -103,7 +103,7 @@ function ActivityCard({
           target={mapsUrl ? "_blank" : undefined}
           rel="noopener noreferrer"
           className={cn(
-            "flex items-center justify-center w-full h-[46px] rounded-xl text-sm font-semibold transition-colors mt-0.5",
+            "flex items-center justify-center w-full h-[42px] rounded-xl text-sm font-semibold transition-colors",
             mapsUrl
               ? "bg-[#BBEA00] text-black dark:bg-[#E3FF36] dark:text-zinc-900 touch-manipulation transition-colors duration-75 active:bg-[#8faf00] dark:active:bg-[#b8cc00]"
               : "bg-zinc-300 text-zinc-400 dark:bg-zinc-800 dark:text-zinc-600 pointer-events-none"
