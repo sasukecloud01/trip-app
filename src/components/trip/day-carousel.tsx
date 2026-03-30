@@ -88,7 +88,7 @@ function ActivityCard({
         </div>
 
         {/* Description — fixed height keeps CTA position consistent */}
-        <p className="h-8 text-sm text-zinc-600 dark:text-zinc-400 leading-snug line-clamp-2 overflow-hidden">
+        <p className="h-11 text-sm text-zinc-600 dark:text-zinc-400 leading-snug line-clamp-2 overflow-hidden">
           {description ?? mapsLocation ?? ""}
         </p>
 
